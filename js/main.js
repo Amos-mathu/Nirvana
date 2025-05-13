@@ -319,3 +319,9 @@ document.addEventListener('DOMContentLoaded', () => {
         }
     });
 });
+
+// When modal opens
+document.body.style.overflow = 'hidden';
+
+// When modal closes
+document.body.style.overflow = '';
