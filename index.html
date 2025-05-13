@@ -30,44 +30,45 @@
     <!-- Reading Progress Bar -->
     <div class="reading-progress-bar" id="readingProgress"></div>
     
-    <!-- Welcome Modal -->
-    <div class="modal fade" id="welcomeModal" tabindex="-1" aria-labelledby="welcomeModalLabel" aria-hidden="true">
-        <div class="modal-dialog modal-dialog-centered">
-            <div class="modal-content">
-                <div class="modal-header border-0">
-                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-                </div>
-                <div class="modal-body text-center welcome-modal-body">
-                    <div class="welcome-icon mb-4">
-                        <i class="fas fa-spa"></i>
-                    </div>
-                    <h2 class="welcome-title mb-3">Welcome to Nirvana</h2>
-                    <p class="welcome-text">How would you like to be addressed?</p>
-                    <div class="name-input-container">
-                        <input type="text" id="visitorName" class="form-control mb-3" placeholder="Enter your name">
-                        <button class="btn-animated btn-primary-animated w-100" id="saveNameBtn">
-                            <span>Begin Your Journey</span>
-                            <svg class="btn-svg" width="13px" height="10px" viewBox="0 0 13 10">
-                                <path d="M1,5 L11,5"></path>
-                                <polyline points="8 1 12 5 8 9"></polyline>
-                            </svg>
-                        </button>
-                    </div>
-                </div>
-            </div>
+    
+  <!-- Welcome Modal -->
+  <div class="modal fade" id="welcomeModal" tabindex="-1" aria-labelledby="welcomeModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered">
+      <div class="modal-content">
+        <div class="modal-header border-0">
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
         </div>
-    </div>
-
-    <!-- Toast Notification -->
-    <div class="toast-container position-fixed bottom-0 end-0 p-3">
-        <div id="greetingToast" class="toast" role="alert" aria-live="assertive" aria-atomic="true">
-            <div class="toast-body">
-                <i class="fas fa-spa"></i> <span id="greetingText"></span>
-            </div>
+        <div class="modal-body text-center welcome-modal-body">
+          <div class="welcome-icon mb-4">
+            <i class="fas fa-spa"></i>
+          </div>
+          <h2 class="welcome-title mb-3">Welcome to Nirvana</h2>
+          <p class="welcome-text">How would you like to be addressed?</p>
+          <div class="name-input-container">
+            <input type="text" id="visitorName" class="form-control mb-3" placeholder="Enter your name">
+            <button class="btn-animated btn-primary-animated w-100" id="saveNameBtn">
+              <span>Begin Your Journey</span>
+              <svg class="btn-svg" width="13px" height="10px" viewBox="0 0 13 10">
+                <path d="M1,5 L11,5"></path>
+                <polyline points="8 1 12 5 8 9"></polyline>
+              </svg>
+            </button>
+          </div>
         </div>
+      </div>
     </div>
+  </div>
 
-    <!-- Navbar -->    <nav class="navbar navbar-expand-lg fixed-top">
+  <!-- Toast Notification -->
+  <div class="toast-container position-fixed bottom-0 end-0 p-3">
+    <div id="greetingToast" class="toast" role="alert" aria-live="assertive" aria-atomic="true">
+      <div class="toast-body">
+        <i class="fas fa-spa"></i> <span id="greetingText"></span>
+      </div>
+    </div>
+  </div>
+    <!-- Navbar -->    
+    <nav class="navbar navbar-expand-lg fixed-top">
         <div class="container">            <a class="navbar-brand" href="#hero">
                 <span class="logo-icon"><i class="fas fa-lightbulb"></i></span>
                 <span class="logo-text">
@@ -254,11 +255,18 @@
         <div class="container">
             <div class="footer-content">
                 <div class="row">
-                    <div class="col-md-4 text-center text-md-start">                        <div class="footer-brand">
+                    <div class="col-md-4 text-center text-md-start">                        
+                        <div class="footer-brand">
                             <span class="logo-icon"><i class="fas fa-lightbulb"></i></span>
                             <span class="logo-text">Nirvana</span>
                         </div>
                         <p class="footer-tagline">Elevating spirits, one quote at a time.</p>
+                        <div class="contact-info">
+                            <a href="tel:+254798480715" class="footer-contact-link">
+                                <i class="fas fa-phone-alt"></i>
+                                <span>+254 798 480 715</span>
+                            </a>
+                        </div>
                     </div>
                     <div class="col-md-4 text-center">
                         <div class="social-links">

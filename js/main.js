@@ -1,8 +1,6 @@
-// Greeting System
 class GreetingSystem {
     constructor() {
-        this.visitorName = localStorage.getItem('visitorName');
-        this.lastVisit = localStorage.getItem('lastVisit');
+        this.visitorName = null;
         this.greetings = {
             morning: [
                 "Good morning", 
@@ -24,26 +22,34 @@ class GreetingSystem {
     }
 
     init() {
-        if (!this.visitorName) {
+        document.addEventListener('DOMContentLoaded', () => {
             this.showWelcomeModal();
-        } else {
-            this.showGreeting();
-        }
 
-        document.getElementById('saveNameBtn')?.addEventListener('click', () => {
-            const nameInput = document.getElementById('visitorName');
-            if (nameInput.value.trim()) {
-                this.visitorName = nameInput.value.trim();
-                localStorage.setItem('visitorName', this.visitorName);
-                bootstrap.Modal.getInstance(document.getElementById('welcomeModal')).hide();
-                this.showGreeting();
+            const saveBtn = document.getElementById('saveNameBtn');
+            if (saveBtn) {
+                saveBtn.addEventListener('click', () => {
+                    const nameInput = document.getElementById('visitorName');
+                    if (nameInput && nameInput.value.trim()) {
+                        this.visitorName = nameInput.value.trim();
+
+                        const modalEl = document.getElementById('welcomeModal');
+                        if (modalEl) {
+                            bootstrap.Modal.getInstance(modalEl).hide();
+                        }
+
+                        this.showGreeting();
+                    }
+                });
             }
         });
     }
 
     showWelcomeModal() {
-        const modal = new bootstrap.Modal(document.getElementById('welcomeModal'));
-        modal.show();
+        const modalElement = document.getElementById('welcomeModal');
+        if (modalElement) {
+            const modal = new bootstrap.Modal(modalElement);
+            modal.show();
+        }
     }
 
     getTimeBasedGreeting() {
@@ -56,14 +62,30 @@ class GreetingSystem {
     showGreeting() {
         const greeting = this.getTimeBasedGreeting();
         const greetingText = `${greeting}, ${this.visitorName}! 🌟`;
-        
-        document.getElementById('greetingText').textContent = greetingText;
-        const toast = new bootstrap.Toast(document.getElementById('greetingToast'));
-        toast.show();
 
-        localStorage.setItem('lastVisit', new Date().toISOString());
+        const greetingElement = document.getElementById('greetingText');
+        if (greetingElement) {
+            greetingElement.textContent = greetingText;
+        }
+
+        const toastEl = document.getElementById('greetingToast');
+        if (toastEl) {
+            toastEl.classList.add('greeting-animate');
+
+            const toast = new bootstrap.Toast(toastEl);
+            toast.show();
+
+            toastEl.addEventListener('hidden.bs.toast', () => {
+                toastEl.classList.remove('greeting-animate');
+            });
+        }
     }
 }
+
+// Initialize the greeting system
+new GreetingSystem();
+
+
 
 // Reading Progress
 class ReadingProgress {
