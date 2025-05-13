@@ -1,0 +1,322 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Nirvana - Find Your Daily Inspiration</title>
+    
+    <!-- PWA Support -->
+    <link rel="manifest" href="manifest.json">
+    <meta name="theme-color" content="#ff6b35">
+    <link rel="apple-touch-icon" href="assets/icons/icon-192x192.png">
+    
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <!-- AOS CSS for scroll animations -->
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+    
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@700&family=Poppins:wght@400;600;700&display=swap" rel="stylesheet"
+      <!-- FullCalendar CSS -->
+    <link href='https://cdn.jsdelivr.net/npm/fullcalendar@6.1.8/main.min.css' rel='stylesheet' />
+    
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="css/styles.css">
+</head>
+<body>
+    <!-- Reading Progress Bar -->
+    <div class="reading-progress-bar" id="readingProgress"></div>
+    
+    <!-- Welcome Modal -->
+    <div class="modal fade" id="welcomeModal" tabindex="-1" aria-labelledby="welcomeModalLabel" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered">
+            <div class="modal-content">
+                <div class="modal-header border-0">
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body text-center welcome-modal-body">
+                    <div class="welcome-icon mb-4">
+                        <i class="fas fa-spa"></i>
+                    </div>
+                    <h2 class="welcome-title mb-3">Welcome to Nirvana</h2>
+                    <p class="welcome-text">How would you like to be addressed?</p>
+                    <div class="name-input-container">
+                        <input type="text" id="visitorName" class="form-control mb-3" placeholder="Enter your name">
+                        <button class="btn-animated btn-primary-animated w-100" id="saveNameBtn">
+                            <span>Begin Your Journey</span>
+                            <svg class="btn-svg" width="13px" height="10px" viewBox="0 0 13 10">
+                                <path d="M1,5 L11,5"></path>
+                                <polyline points="8 1 12 5 8 9"></polyline>
+                            </svg>
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Toast Notification -->
+    <div class="toast-container position-fixed bottom-0 end-0 p-3">
+        <div id="greetingToast" class="toast" role="alert" aria-live="assertive" aria-atomic="true">
+            <div class="toast-body">
+                <i class="fas fa-spa"></i> <span id="greetingText"></span>
+            </div>
+        </div>
+    </div>
+
+    <!-- Navbar -->    <nav class="navbar navbar-expand-lg fixed-top">
+        <div class="container">            <a class="navbar-brand" href="#hero">
+                <span class="logo-icon"><i class="fas fa-lightbulb"></i></span>
+                <span class="logo-text">
+                    <span class="nav-letter">N</span>
+                    <span class="nav-letter">i</span>
+                    <span class="nav-letter">r</span>
+                    <span class="nav-letter">v</span>
+                    <span class="nav-letter">a</span>
+                    <span class="nav-letter">n</span>
+                    <span class="nav-letter">a</span>
+                </span>
+            </a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item">
+                        <a class="nav-link" href="#hero">Home</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#inspire">Inspire Me</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#about">About</a>
+                    </li>                    <li class="nav-item">
+                        <a class="nav-link" href="#contact">Contact</a>
+                    </li>
+                </ul>                <div class="theme-switcher ms-3">
+                    <button class="theme-btn active" data-theme="light" title="Light Theme">
+                        <i class="fas fa-sun"></i>
+                    </button>
+                    <button class="theme-btn" data-theme="zen" title="Zen Theme">
+                        <i class="fas fa-yin-yang"></i>
+                    </button>
+                </div>
+            </div>
+        </div>
+    </nav>    <!-- Hero Section -->    <section id="hero" class="hero-section">
+        <div class="hero-overlay"></div>
+        <div class="container h-100">
+            <div class="row h-100 align-items-center">
+                <div class="col-md-10 mx-auto text-center"><h2 class="welcome-text" data-aos="fade-down">Welcome to</h2>
+                    <h1 class="glitch" data-text="Nirvana" data-aos="fade-up">Nirvana</h1>
+                    <p class="hero-subtitle mb-4" data-aos="fade-up">Elevate your spirit with daily doses of inspiration</p>
+                    <div class="cta-buttons" data-aos="fade-up" data-aos-delay="200">
+                        <a href="#inspire" class="btn-animated btn-primary-animated">
+                            <span>Get Inspired</span>
+                            <svg class="btn-svg" width="13px" height="10px" viewBox="0 0 13 10">
+                                <path d="M1,5 L11,5"></path>
+                                <polyline points="8 1 12 5 8 9"></polyline>
+                            </svg>
+                        </a>
+                        <a href="#about" class="btn-animated btn-secondary-animated">
+                            <span>Learn More</span>
+                            <svg class="btn-svg" width="13px" height="10px" viewBox="0 0 13 10">
+                                <path d="M1,5 L11,5"></path>
+                                <polyline points="8 1 12 5 8 9"></polyline>
+                            </svg>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Inspire Me Section -->    <section id="inspire" class="inspire-section">
+        <div id="inspireParticles"></div>
+        <div class="container">
+            <h2 class="text-center mb-5" data-aos="fade-up">Find Your Daily Quote</h2>
+            <div class="row">
+                <div class="col-md-8 mx-auto">
+                    <div class="quote-generator" data-aos="fade-up">
+                        <select class="form-select mb-3" id="quoteCategory">
+                            <option value="motivational">Motivational</option>
+                            <option value="love">Love</option>
+                            <option value="peace">Peace</option>
+                            <option value="zen">Zen</option>
+                        </select>
+                        <button class="btn btn-primary w-100 mb-4" id="getQuote">Generate Quote</button>
+                        <div class="quote-display">
+                            <blockquote class="blockquote">
+                                <p id="quoteText">Click the button to generate your first quote</p>
+                                <footer class="blockquote-footer" id="quoteAuthor"></footer>
+                            </blockquote>                        <div class="quote-actions mt-3">
+                            <button class="favorite-btn" id="addToFavorites">
+                                <i class="fas fa-heart"></i>
+                                <span>Add to Favorites</span>
+                            </button>
+                            <div class="share-quote ms-3">
+                                <button class="share-btn" data-platform="twitter">
+                                    <i class="fab fa-twitter"></i>
+                                </button>
+                                <button class="share-btn" data-platform="facebook">
+                                    <i class="fab fa-facebook"></i>
+                                </button>
+                                <button class="share-btn" data-platform="whatsapp">
+                                    <i class="fab fa-whatsapp"></i>
+                                </button>
+                                <button class="share-btn copy-quote">
+                                    <i class="fas fa-copy"></i>
+                                </button>
+                            </div>
+                        </div>
+                        <div class="quote-timer mt-3">
+                            <p class="text-center text-muted" id="nextQuoteTimer"></p>
+                        </div>
+                        </div>
+                    </div>
+                    <div class="favorites-section mt-5" data-aos="fade-up">
+                        <h3 class="mb-4">Your Favorite Quotes</h3>
+                        <div id="favoritesList" class="favorites-list"></div>
+                    </div>
+                </div>
+            </div>
+        </div>    </section>    
+
+    <!-- About Section -->
+    <section id="about" class="about-section">
+        <div class="doodle-bg"></div>
+        <div class="container">
+            <div class="row align-items-center">
+                <div class="col-md-6" data-aos="fade-right">
+                    <div id="aboutAnimation"></div>
+                </div>
+                <div class="col-md-6" data-aos="fade-left">
+                    <h2 class="mb-4">About InspireBoost</h2>
+                    <p class="lead">Discover the power of daily inspiration with InspireBoost. We curate meaningful quotes that motivate, uplift, and enlighten.</p>
+                    <p>Our mission is to provide you with the perfect dose of inspiration whenever you need it. Whether you're seeking motivation, love, peace, or zen wisdom, InspireBoost is here to elevate your spirit.</p>
+                </div>
+            </div>
+        </div>
+    </section>    <!-- Contact Section -->
+    <section id="contact" class="contact-section">
+        <div class="doodle-bg-contact"></div>
+        <div class="container">
+            <div class="row align-items-center">
+                <div class="col-md-6" data-aos="fade-right">                    <h2 class="text-center mb-4">Get in Touch</h2>
+                    <p class="contact-intro mb-4 text-center">Have a question or want to share your thoughts?We'd love to hear from you! Drop us a message and we'll get back to you as soon as possible.</p>
+                    <form id="contactForm" class="modern-form">
+                        <div class="form-floating mb-3">
+                            <input type="text" class="form-control" id="name" placeholder="Your Name" required>
+                            <label for="name"><i class="fas fa-user"></i> Your Name</label>
+                        </div>
+                        <div class="form-floating mb-3">
+                            <input type="email" class="form-control" id="email" placeholder="Your Email" required>
+                            <label for="email"><i class="fas fa-envelope"></i> Your Email</label>
+                        </div>
+                        <div class="form-floating mb-4">
+                            <textarea class="form-control" id="message" rows="5" placeholder="Your Message" required></textarea>
+                            <label for="message"><i class="fas fa-comment-dots"></i> Your Message</label>
+                        </div>
+                        <button type="submit" class="btn-animated btn-primary-animated">
+                            <span>Send Message</span>
+                            <svg class="btn-svg" width="13px" height="10px" viewBox="0 0 13 10">
+                                <path d="M1,5 L11,5"></path>
+                                <polyline points="8 1 12 5 8 9"></polyline>
+                            </svg>
+                        </button>
+                    </form>
+                </div>
+                <div class="col-md-6" data-aos="fade-left">
+                    <div id="contactAnimation"></div>
+                </div>
+            </div>
+        </div>
+    </section>    <!-- Footer -->
+    <footer class="footer">
+        <div class="footer-waves">
+            <svg class="waves" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 24 150 28" preserveAspectRatio="none" shape-rendering="auto">
+                <defs>
+                    <path id="wave" d="M-160 44c30 0 58-18 88-18s 58 18 88 18 58-18 88-18 58 18 88 18 v44h-352z" />
+                </defs>
+                <g class="parallax">
+                    <use xlink:href="#wave" x="48" y="0" fill="rgba(255,107,53,0.4)" />
+                    <use xlink:href="#wave" x="48" y="3" fill="rgba(255,107,53,0.3)" />
+                    <use xlink:href="#wave" x="48" y="5" fill="rgba(255,107,53,0.2)" />
+                    <use xlink:href="#wave" x="48" y="7" fill="rgba(255,107,53,0.1)" />
+                </g>
+            </svg>
+        </div>
+        <div class="container">
+            <div class="footer-content">
+                <div class="row">
+                    <div class="col-md-4 text-center text-md-start">                        <div class="footer-brand">
+                            <span class="logo-icon"><i class="fas fa-lightbulb"></i></span>
+                            <span class="logo-text">Nirvana</span>
+                        </div>
+                        <p class="footer-tagline">Elevating spirits, one quote at a time.</p>
+                    </div>
+                    <div class="col-md-4 text-center">
+                        <div class="social-links">
+                            <a href="#" class="social-link facebook" aria-label="Facebook">
+                                <i class="fab fa-facebook-f"></i>
+                            </a>
+                            <a href="#" class="social-link twitter" aria-label="Twitter">
+                                <i class="fab fa-twitter"></i>
+                            </a>                            <a href="#" class="social-link instagram" aria-label="Instagram">
+                                <i class="fab fa-instagram"></i>
+                            </a>
+                            <a href="https://wa.me/254776325607" target="_blank" class="social-link whatsapp" aria-label="WhatsApp">
+                                <i class="fab fa-whatsapp"></i>
+                            </a>
+                            <a href="#" class="social-link linkedin" aria-label="LinkedIn">
+                                <i class="fab fa-linkedin-in"></i>
+                            </a>
+                        </div>
+                    </div>
+                    <div class="col-md-4 text-center text-md-end">
+                        <p class="copyright">
+                            &copy; 2025 Nirvana. All rights reserved.<br>
+                            <span class="rights">Made with <i class="fas fa-heart"></i> by Altratech Solutions</span>
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Bootstrap JS -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    
+    <!-- Lottie Animation -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/lottie-web/5.9.6/lottie.min.js"></script>
+    
+    <!-- AOS JS -->
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    
+    <!-- FullCalendar JS -->
+    <script src='https://cdn.jsdelivr.net/npm/fullcalendar@6.1.8/main.min.js'></script>
+    
+    <!-- Custom JS -->    <script src="js/particles-interactive.js"></script>
+    <script src="js/animations.js"></script>
+    <script src="js/quotes.js"></script>
+    <script src="js/main.js"></script>
+
+    <!-- PWA Registration -->
+    <script>
+        if ('serviceWorker' in navigator) {
+            window.addEventListener('load', () => {
+                navigator.serviceWorker.register('/sw.js')
+                    .then(registration => {
+                        console.log('ServiceWorker registered: ', registration);
+                    })
+                    .catch(error => {
+                        console.log('ServiceWorker registration failed: ', error);
+                    });
+            });
+        }
+    </script>
+</body>
+</html>
