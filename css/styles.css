@@ -413,7 +413,10 @@ h2:after {
     color: var(--white);
     position: relative;
     overflow: hidden;
-    padding-top: 120px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding-top: 0;
     transform-style: preserve-3d;
     perspective: 1000px;
 }
