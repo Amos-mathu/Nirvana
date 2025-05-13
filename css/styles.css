@@ -178,11 +178,11 @@ body {
 /* Make the modal more responsive on smaller screens */
 @media (max-width: 576px) {
   .modal-dialog {
-    max-width: 90%; /* Full width on small devices */
+    max-width: 70%; /* Full width on small devices */
     margin: auto;
     display: flex;
     align-items: center;
-    min-height: 100vh; /* Remove any margin for the modal */
+    min-height: 70vh; /* Remove any margin for the modal */
   }
 
   .modal-content {
