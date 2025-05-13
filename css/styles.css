@@ -178,7 +178,7 @@ body {
 /* Make the modal more responsive on smaller screens */
 @media (max-width: 576px) {
   .modal-dialog {
-    max-width: 100%; /* Full width on small devices */
+    max-width: 50%; /* Full width on small devices */
     margin: 0; /* Remove any margin for the modal */
   }
 
