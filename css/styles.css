@@ -175,6 +175,35 @@ body {
     color: #666;
 }
 
+/* Make the modal more responsive on smaller screens */
+@media (max-width: 576px) {
+  .modal-dialog {
+    max-width: 100%; /* Full width on small devices */
+    margin: 0; /* Remove any margin for the modal */
+  }
+
+  .modal-content {
+    border-radius: 0; /* Remove border-radius for a more mobile-friendly view */
+  }
+
+  .welcome-title {
+    font-size: 1.5rem; /* Adjust title size for mobile */
+  }
+
+  .welcome-text {
+    font-size: 1rem; /* Adjust text size for mobile */
+  }
+
+  .name-input-container input {
+    font-size: 1rem; /* Larger input text on smaller screens */
+  }
+
+  .name-input-container button {
+    font-size: 1rem; /* Larger button text */
+  }
+}
+
+/* Optional: add some animation for mobile devices */
 @keyframes fadeSlideUp {
   from {
     opacity: 0;
@@ -185,6 +214,11 @@ body {
     transform: translateY(0);
   }
 }
+
+.toast.greeting-animate {
+  animation: fadeSlideUp 0.6s ease-out;
+}
+
 
 .toast.greeting-animate {
   animation: fadeSlideUp 0.6s ease-out;
