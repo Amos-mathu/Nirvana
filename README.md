@@ -16,7 +16,7 @@ Nirvana is a modern, interactive web application designed to provide daily inspi
 - **Theme Switcher**: Choose between Light and Zen themes
 - **Social Sharing**: Share quotes directly to social media platforms
 
-### Technical Features
+## Technical Features
 - **Progressive Web App (PWA)**: Install and use offline
 - **Responsive Design**: Seamless experience across all devices
 - **Modern Animations**: Smooth transitions and particle effects
