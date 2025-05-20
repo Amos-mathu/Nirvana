@@ -1,6 +1,5 @@
 # Nirvana - Daily Inspiration & Quotes
 
-![Logo](assets/icons/icon-192x192.png)
 
 ## 🌟 Overview
 
