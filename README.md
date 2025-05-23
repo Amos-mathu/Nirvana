@@ -118,7 +118,7 @@ This project is licensed under the MIT License - see the [LICENSE](LICENSE) file
 
 - Developer: [Amos-mathu]
 - Email: [amos.mathu.0@gmail.com]
-- Website: [Nirvana]
+- Website: [Nirvana-weld.vercel.app]
 
 ## ✨ Acknowledgments
 
